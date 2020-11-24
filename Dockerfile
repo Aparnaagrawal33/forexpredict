@@ -5,5 +5,7 @@ RUN mkdir /code
 WORKDIR /code
 COPY forexPredictionML/. /code/
 RUN pip install -r requirements.txt
-EXPOSE 8000
-CMD python manage.py runserver
+RUN pip install joblib
+RUN pip install numpy
+EXPOSE 8000 9000
+CMD python manage.py runserver 0.0.0.0:8000
